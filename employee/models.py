@@ -23,6 +23,18 @@ class CustomUser(AbstractUser):
 class Employee(models.Model):
     employee_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=50,blank=True)
+    contact = models.CharField(max_length=50,blank=True)
+    email = models.EmailField(max_length=254)
+    address = models.CharField(max_length=50,blank=True)
+    status = models.CharField(max_length=50,blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+class Official(models.Model):
+    official_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    name = models.CharField(max_length=50,blank=True)
     user = models.ForeignKey('CustomUser', on_delete=models.CASCADE)
     contact = models.CharField(max_length=50,blank=True)
     email = models.EmailField(max_length=254)
@@ -32,4 +44,6 @@ class Employee(models.Model):
 
     def __str__(self):
         return self.name
+
+
 
