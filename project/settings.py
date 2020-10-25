@@ -25,7 +25,7 @@ SECRET_KEY = '*01@umt5aa3s%r^-zq_vykcomk78$-)b73zmnn_=x5@kfop#*2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -115,6 +115,17 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+LOGIN_REDIRECT_URL = 'employee:index'
+
+LOGIN_URL = 'login'
+
+LOGOUT_REDIRECT_URL = 'employee:index'
+LOGOUT_URL = 'logout'
+
+
+
 
 
 MEDIA_URL = 'media/'

@@ -6,7 +6,7 @@
                         <nav aria-label="breadcrumb" class="col-sm-4 order-sm-last mb-3 mb-sm-0 p-0 ">
                             <ol class="breadcrumb d-inline-flex font-weight-600 fs-13 bg-white mb-0 float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a href="#">Transport Officals</a></li>
+                                <li class="breadcrumb-item"><a href="#">Transport Vehicles</a></li>
                                 <li class="breadcrumb-item active">Manage</li>
                             </ol>
                         </nav>
@@ -14,7 +14,7 @@
                             <div class="media">
                                 <div class="header-icon text-success mr-3"><i class="typcn typcn-puzzle-outline"></i></div>
                                 <div class="media-body">
-                                    <h1 class="font-weight-bold">Transport Officals</h1>
+                                    <h1 class="font-weight-bold">Transport Vehicles</h1>
                                     <small>These are the pips that ....</small>
                                 </div>
                             </div>
@@ -49,11 +49,10 @@
                                     <table class="table display table-bordered table-striped table-hover sourced">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
+                                                <th>License Plate</th>
                                                 <th>Contact</th>
-                                                <th>Email</th>
-                                                <th>Address</th>
-                                                <th>Status</th>
+                                                <th>Vehicle Color</th>
+                                                {% comment %} <th>Status</th> {% endcomment %}
                                                 <th>Created</th>
 
 
@@ -64,14 +63,15 @@
 
 
 
-                                    {% for managers in m %}
+                                    {% for v in vehicles %}
                                      <tr>
-                                                <td>{{m.name}}</td>
-                                                <td>{{m.contact}}</td>
-                                                <td>{{m.email}}</td>
-                                                <td>{{m.address}}</td>
-                                                <td>{{m.status}}</td>
-                                                <td>{{m.created_at}}</td>
+                                                <td><a href="{% url 'employee:vehicle_details' v.vehicle_id %}" >{{v.license_plate}}</a></td>
+                                                <td>{{v.vehicle_contact}}</td>
+                                                <td>{{v.vehicle_color}}</td>
+                                                {% comment %} <td>{{v.status}}</td> {% endcomment %}
+                                                <td>{{v.created_at}}</td>
+
+                                      
                                         </tr> 
                                             
                                     
@@ -88,4 +88,19 @@
                        
                     </div><!--/.body content-->
 
+
+
+
 {% endblock content %}
+
+
+
+
+  {% block scripts %}
+
+   <script>
+ 
+  
+    </script>
+  {% endblock scripts %}
+ 

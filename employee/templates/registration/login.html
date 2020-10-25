@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="Responsive Bootstrap 4 Admin &amp; Dashboard Template">
         <meta name="author" content="Bdtask">
-        <title>Bhulua - Bootstrap 4 Admin Template Deshboard</title>
+        <title>Employee - Admin</title>
         <!-- App favicon -->
         <link rel="shortcut icon" href="/static/employee/assets/dist/img/favicon.png">
         <!--Global Styles(used by all pages)-->
@@ -34,13 +34,19 @@
                             <p class="text-muted text-center mb-0">Nice to see you! Please log in with your account.</p>
                         </div>
                         
-                       <form class="register-form">
+                       {% comment %} <form class="register-form"> {% endcomment %}
+                       {% if form.errors %} <p>Your username and password didn't match. Please try again.</p> {% endif %}
+                <form class="register-form" method="post">
+                    {% csrf_token %}
                             <div class="form-group">
-                                <input type="email" class="form-control is-invalid" id="emial" placeholder="Enter email">
-                                <div class="invalid-feedback text-left">Enter your valid email</div>
+                                {% comment %} <input type="email" class="form-control is-invalid" id="emial" placeholder="Enter email"> {% endcomment %}
+                                 <input type="text" name="username" class="form-control is-invalid" id="emial" placeholder="Enter username"> 
+                                   {% comment %} <input type="text" class="input-field" name="username" id="id_username" placeholder="Username" required autocomplete="off" required> {% endcomment %}
+                                {% comment %} <div class="invalid-feedback text-left">Enter your valid email</div> {% endcomment %}
+                                 <div class="invalid-feedback text-left">Enter your valid username</div>
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="pass" placeholder="Password">
+                                <input type="password" name="password" class="form-control" id="pass" placeholder="Password">
                             </div>
                             <div class="custom-control custom-checkbox mb-3">
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">

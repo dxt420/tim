@@ -1,0 +1,89 @@
+
+{% extends 'employee/admin/base.html' %}
+{% block content %}
+
+
+
+
+   <div class="content-header row align-items-center m-0">
+                        <nav aria-label="breadcrumb" class="col-sm-4 order-sm-last mb-3 mb-sm-0 p-0 ">
+                            <ol class="breadcrumb d-inline-flex font-weight-600 fs-13 bg-white mb-0 float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Transport Vehicle</a></li>
+                                <li class="breadcrumb-item active">New Transport Vehicle</li>
+                            </ol>
+                        </nav>
+                        <div class="col-sm-8 header-title p-0">
+                            <div class="media">
+                                <div class="header-icon text-success mr-3"><i class="typcn typcn-puzzle-outline"></i></div>
+                                <div class="media-body">
+                                    <h1 class="font-weight-bold">New Transport Vehicle</h1>
+                                    <small>Some shit to say ...</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/.Content Header (Page header)--> 
+                    <div class="body-content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card mb-12">
+                                   
+                                    <div class="card-body">
+                                    
+
+                                         <p>For custom Bootstrap form validation messages, you’ll need to add the <code>novalidate</code> boolean attribute
+                                            to your <code>&lt;form&gt;</code>. This disables the browser default feedback tooltips, but still provides 
+                                            access to the form validation APIs in JavaScript. Try to submit the form below; our JavaScript will intercept
+                                            the submit button and relay feedback to you. When attempting to submit, you’ll see the <code>:invalid</code> and
+                                            <code>:valid</code> styles applied to your form controls.</p>
+                                        <p>Custom feedback styles apply custom colors, borders, focus styles, and background icons to better communicate
+                                            feedback. Background icons for <code>&lt;select&gt;</code>s are only available with <code>.custom-select</code>, and not <code>.form-control</code>.</p>
+                                        <form  method="post" action="{% url 'employee:add_vehicle' %}"   enctype="multipart/form-data"  >
+                                             {% csrf_token %}  
+                                            <div class="form-row">
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom01" class="font-weight-600">License Plate</label>
+                                                    <input type="text" name="license_plate" class="form-control"  placeholder="U** ***" required>
+                                                 
+                                                </div>
+
+                     
+
+
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustom02" class="font-weight-600">Vehicle Contact Number</label>
+                                                    
+                                                    <input type="text" name="vehicle_contact" class="form-control"  placeholder="Enter contact number" required>
+                                                   
+                                                </div>
+                                                <div class="col-md-4 mb-3">
+                                                    <label for="validationCustomUsername" class="font-weight-600">Vehicle Color</label>
+                                                    <div class="input-group">
+                                                      
+                                                        <input type="text" name="vehicle_color" class="form-control" placeholder="What color is the vehicle" required>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          
+                                         
+                                            <button class="btn btn-success" type="submit">Add Vehicle</button>
+                                        </form>
+
+
+
+                                   
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                          
+                        </div>
+
+                        
+                    </div><!--/.body content-->
+
+
+
+{% endblock content %}
